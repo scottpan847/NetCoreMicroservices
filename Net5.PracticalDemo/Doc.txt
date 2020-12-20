@@ -1,0 +1,10 @@
+面向环形编程
+
+	中间件：任何请求最外层到达，提前做些筛选过滤工作，但是中间件一般没有控制器action这些信息，不适合业务逻辑
+	Filter:MVC流程，流程外处理不了（404）：IActionFilter,IResultFilter,IResourceFilter,ExeptionFilterAttribute.....
+	autofac：可以深入到业务逻辑层做AOP扩展
+
+服务端缓存--中间件缓存例子
+	1 services.AddResponseCaching();
+	2 app.UseResponseCaching();
+	3 配合ResponseCache；
