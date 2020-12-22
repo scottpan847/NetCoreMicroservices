@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AspNetCore.interface\AspNetCore.Interface.csproj" />
     <ProjectReference Include="..\AspNetCore.Service\AspNetCore.Service.csproj" />
-    <ProjectReference Include="..\AspNetrCore.interface\AspNetrCore.Interface.csproj" />
   </ItemGroup>
 
   <ItemGroup>

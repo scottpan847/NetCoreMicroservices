@@ -8,3 +8,6 @@
 	1 services.AddResponseCaching();
 	2 app.UseResponseCaching();
 	3 配合ResponseCache；
+
+微服务架构
+	一个用分布式服务拆分业务逻辑，完成解耦的架构模式
