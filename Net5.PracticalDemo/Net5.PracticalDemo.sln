@@ -7,15 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5.PracticalDemo", "Net5.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Service", "..\AspNetCore.Service\AspNetCore.Service.csproj", "{A55D0E14-8377-4199-B4AD-3622AD843E2A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetrCore.Interface", "..\AspNetCore.interface\AspNetrCore.Interface.csproj", "{F8F0DAE1-F70B-47EE-B618-EC97EDA508DC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.ClientDemo", "..\MicroService.ClientDemo\MicroService.ClientDemo.csproj", "{A080A3E7-9674-43E1-A944-8A4A77150938}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.Model", "..\MicroService.Model\MicroService.Model.csproj", "{A4894C64-A5E5-4F71-8649-222D9BC393D1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.ServiceInstance", "..\MicroService.ServiceInstance\MicroService.ServiceInstance.csproj", "{56FD9A74-83AF-49F7-B989-BABDF6261D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.GatewayDemo", "..\MicroService.GatewayDemo\MicroService.GatewayDemo.csproj", "{B92EAF87-9D02-4810-B9CB-E22F90049F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.GatewayDemo", "..\MicroService.GatewayDemo\MicroService.GatewayDemo.csproj", "{B92EAF87-9D02-4810-B9CB-E22F90049F70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Interface", "..\AspNetCore.interface\AspNetCore.Interface.csproj", "{A1B93FDF-932B-49A2-8404-B19373240B0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,6 @@ Global
 		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8F0DAE1-F70B-47EE-B618-EC97EDA508DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8F0DAE1-F70B-47EE-B618-EC97EDA508DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8F0DAE1-F70B-47EE-B618-EC97EDA508DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8F0DAE1-F70B-47EE-B618-EC97EDA508DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A080A3E7-9674-43E1-A944-8A4A77150938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A080A3E7-9674-43E1-A944-8A4A77150938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A080A3E7-9674-43E1-A944-8A4A77150938}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{B92EAF87-9D02-4810-B9CB-E22F90049F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B92EAF87-9D02-4810-B9CB-E22F90049F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B92EAF87-9D02-4810-B9CB-E22F90049F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B93FDF-932B-49A2-8404-B19373240B0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B93FDF-932B-49A2-8404-B19373240B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B93FDF-932B-49A2-8404-B19373240B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B93FDF-932B-49A2-8404-B19373240B0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

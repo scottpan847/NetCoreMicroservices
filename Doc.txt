@@ -10,6 +10,7 @@
 	2 app.UseResponseCaching();
 	3 配合ResponseCache；
 
+<<<<<<< HEAD
 初始化客户端--服务实例
 	
 
@@ -33,3 +34,7 @@
 			2.服务的健康检查，自动下线
 	consul
 	zookeeper
+=======
+微服务架构
+	一个用分布式服务拆分业务逻辑，完成解耦的架构模式
+>>>>>>> 59a68fd30b4e7e42c9ebc3fc166058d523b9d2b7

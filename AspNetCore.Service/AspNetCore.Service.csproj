@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspNetCore.interface\AspNetrCore.Interface.csproj" />
     <ProjectReference Include="..\MicroService.Model\MicroService.Model.csproj" />
+    <ProjectReference Include="..\AspNetCore.interface\AspNetCore.Interface.csproj" />
   </ItemGroup>
 
 </Project>
