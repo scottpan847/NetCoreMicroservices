@@ -1,0 +1,147 @@
+//{
+//  "Routes": [
+//    {
+//      //万能模板配置方法：UpstreamPathTemplate 与DownstreamPathTemplate 设置为 “/{url}”
+//      //万能模板即所有请求全部转发，万能模板的优先级最低，只要有其它的路由模板，其它的路由模板则会优先生效
+
+//      //下游服务路由模板
+//      "DownstreamPathTemplate": "/api/{url}",
+//      //下游服务http schema
+//      "DownstreamScheme": "http",
+//      //下游服务的地址，如果使用LoadBalancer的话这里可以填多项
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5726
+//        },
+//        {
+//          "Host": "localhost",
+//          "Port": 5727
+//        }
+//      ],
+//      //上游也就是用户输入的请求Url模板
+//      "UpstreamPathTemplate": "/{url}",
+//      //优先级
+//      "Priority": 0,
+//      //上游请求http方法，可使用数组
+//      "UpstreamHttpMethod": [
+//        "GET",
+//        "POST",
+//        "PUT",
+//        "DELETE"
+//      ],
+//      //上游Host
+//      //"UpstreamHost": "api.test.com",
+//      /**
+//       * 负载均衡的算法：
+//       * LeastConnection – 将请求发往最空闲的那个服务器
+//       * RoundRobin – 轮流发送
+//       * NoLoadBalance – 总是发往第一个请求或者是服务发现
+//       */
+//      "LoadBalancer": "LeastConnection"
+//      //用于请求聚合的标识
+//      //"Key": "RouteKey"
+//    }
+//  ]
+//  /**
+//   * 聚合服务目前只支持返回json
+//   * 目前只支持Get方式请求下游服务
+//   * 任何下游的response header并会被丢弃
+//   * 如果下游服务返回404，聚合服务只是这个key的value为空，它不会返回404
+//   */
+//  //"Aggregates": [
+//  //  {
+//  //    "ReRouteKeys": [
+//  //      "RouteKey"
+//  //    ],
+//  //    "UpstreamPathTemplate": "/"
+//  //  }
+//  //],
+//  //限流
+//  //"RateLimitOptions": {
+//  //  //白名单
+//  //  "ClientWhitelist": [],
+//  //  //是否启用限流
+//  //  "EnableRateLimiting": true,
+//  //  //统计时间段：1s, 5m, 1h, 1d
+//  //  "Period": "1s",
+//  //  //多少秒之后客户端可以重试
+//  //  "PeriodTimespan": 1,
+//  //  //在统计时间段内允许的最大请求数量
+//  //  "Limit": 1
+//  //},
+//  ////熔断
+//  //"QoSOptions": {
+//  //  //允许多少个异常请求
+//  //  "ExceptionsAllowedBeforeBreaking": 3,
+//  //  //熔断的时间，单位为秒
+//  //  "DurationOfBreak": 5,
+//  //  //如果下游请求的处理时间超过多少则自如将请求设置为超时
+//  //  "TimeoutValue": 5000
+//  //},
+//  //"GlobalConfiguration": {
+//  //  //外部暴露的Url
+//  //  "BaseUrl": "https://api.mybusiness.com",
+//  //  "ServiceDiscoveryProvider": {
+//  //    "Host": "localhost",
+//  //    "Port": 8500,
+//  //    "Type": "Consul"//由Consul提供服务发现
+//  //  },
+//  //  //限流扩展配置
+//  //  "RateLimitOptions": {
+//  //    //Http头  X-Rate-Limit 和 Retry-After 是否禁用
+//  //    "DisableRateLimitHeaders": false,
+//  //    //当请求过载被截断时返回的消息
+//  //    "QuotaExceededMessage": "请求超出最大限制！",
+//  //    //当请求过载被截断时返回的http status
+//  //    "HttpStatusCode": 999,
+//  //    //用来识别客户端的请求头，默认是 ClientId
+//  //    "ClientIdHeader": "ClientId"
+//  //  }
+//  //}
+//}
+
+
+{
+  //ocelot结合consul配置文件
+  "Routes": [
+    {
+      //下游服务路由模板
+      "DownstreamPathTemplate": "/api/{url}",
+      //下游服务http schema
+      "DownstreamScheme": "http",
+      //上游也就是用户输入的请求Url模板
+      "UpstreamPathTemplate": "/T/{url}",
+      //优先级
+      "Priority": 0,
+      //上游请求http方法，可使用数组
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "ServiceName": "PSJService", //consul服务名称
+      "UseServiceDiscovery": true,
+      //上游Host
+      //"UpstreamHost": "api.test.com",
+      /**
+       * 负载均衡的算法：
+       * LeastConnection – 将请求发往最空闲的那个服务器
+       * RoundRobin – 轮流发送
+       * NoLoadBalance – 总是发往第一个请求或者是服务发现
+       */
+      "LoadBalancer": "LeastConnection"
+    }
+  ],
+  "GlobalConfiguration": {
+    //外部暴露的Url
+    "BaseUrl": "https://127.0.0.1:6299",
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul" //由Consul提供服务发现
+    }
+  }
+
+}

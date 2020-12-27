@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspNetrCore.interface\AspNetrCore.Interface.csproj" />
+    <ProjectReference Include="..\AspNetCore.interface\AspNetrCore.Interface.csproj" />
+    <ProjectReference Include="..\MicroService.Model\MicroService.Model.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,33 +2,35 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Net5.PracticalDemo.Fillter
 {
     /// <summary>
-    /// OnResourceExecuted 缓存结果
-    /// OnResourceExecuting 使用缓存
+    /// 客户端缓存
     /// </summary>
-    public class CustomCacheResourceFilterAttribute : Attribute, IResourceFilter, IFilterMetadata, IOrderedFilter
+    public class CustomCacheResultFilterAttribute : Attribute, IResultFilter, IFilterMetadata, IOrderedFilter
     {
-        private static Dictionary<string, IActionResult> _CustomCacheResourceFilterAttributeDictionary = new Dictionary<string, IActionResult>();
+        //public CustomCacheResultFilterAttribute(int Duration)
+        //{
+        //    this.Duration = Duration;
+        //}
         public int Order => 0;
 
-        public void OnResourceExecuted(ResourceExecutedContext context)
+        public int Duration { get; set; }
+
+        public void OnResultExecuted(ResultExecutedContext context)
         {
-            string key = context.HttpContext.Request.Path;
-            if (_CustomCacheResourceFilterAttributeDictionary.ContainsKey(key))
-            {
-                context.Result = _CustomCacheResourceFilterAttributeDictionary[key];
-            }
+            //这个不行 已经指定了response
         }
 
-        public void OnResourceExecuting(ResourceExecutingContext context)
+
+        public void OnResultExecuting(ResultExecutingContext context)
         {
-            string key = context.HttpContext.Request.Path;
-            _CustomCacheResourceFilterAttributeDictionary.Add(key,context.Result);
+            context.HttpContext.Response.Headers["Cache-Control"] = $"public,max-age={this.Duration}";
         }
+
     }
 }
