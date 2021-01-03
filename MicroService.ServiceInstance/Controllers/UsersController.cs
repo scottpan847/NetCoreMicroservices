@@ -32,10 +32,20 @@ namespace MicroService.ServiceInstance.Controllers
         }
         [HttpGet]
         [Route("All")]
-        public List<User> Get()
+        public IEnumerable<User> Get()
         {
             Console.WriteLine($"This is UsersController {_configuration["port"]} Invoke");
-            return _userService.UserAll().ToList();
+
+            return _userService.UserAll().ToList().Select(u=>new User() 
+            {
+                Id = u.Id,
+                Account = u.Account,
+                Name = u.Name,
+                Role = $"{this._configuration["ip"]}{this._configuration["port"]}",
+                Email = u.Email,
+                LoginTime = u.LoginTime,
+                Pwd = u.Pwd
+            });
         }
     }
 }

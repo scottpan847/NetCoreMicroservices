@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
+using Ocelot.Provider.Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,9 @@ namespace MicroService.GatewayDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOcelot().AddConsul();//如何处理
+            services.AddOcelot()
+                .AddConsul()
+                .AddPolly();//如何处理
             //services.AddControllers();
             //services.AddSwaggerGen(c =>
             //{

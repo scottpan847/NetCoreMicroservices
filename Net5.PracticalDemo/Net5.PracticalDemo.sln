@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5.PracticalDemo", "Net5.PracticalDemo.csproj", "{787EAE21-C5BE-4076-B13F-3FAC3B34E07E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Service", "..\AspNetCore.Service\AspNetCore.Service.csproj", "{A55D0E14-8377-4199-B4AD-3622AD843E2A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.ClientDemo", "..\MicroService.ClientDemo\MicroService.ClientDemo.csproj", "{A080A3E7-9674-43E1-A944-8A4A77150938}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.Model", "..\MicroService.Model\MicroService.Model.csproj", "{A4894C64-A5E5-4F71-8649-222D9BC393D1}"
@@ -23,14 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{787EAE21-C5BE-4076-B13F-3FAC3B34E07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{787EAE21-C5BE-4076-B13F-3FAC3B34E07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{787EAE21-C5BE-4076-B13F-3FAC3B34E07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{787EAE21-C5BE-4076-B13F-3FAC3B34E07E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A55D0E14-8377-4199-B4AD-3622AD843E2A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A080A3E7-9674-43E1-A944-8A4A77150938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A080A3E7-9674-43E1-A944-8A4A77150938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A080A3E7-9674-43E1-A944-8A4A77150938}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -111,7 +111,7 @@
       //下游服务http schema
       "DownstreamScheme": "http",
       //上游也就是用户输入的请求Url模板
-      "UpstreamPathTemplate": "/T/{url}",
+      "UpstreamPathTemplate": "/consul/{url}",
       //优先级
       "Priority": 0,
       //上游请求http方法，可使用数组
@@ -122,7 +122,7 @@
         "DELETE"
       ],
       "ServiceName": "PSJService", //consul服务名称
-      "UseServiceDiscovery": true,
+      "UseServiceDiscovery": true, //服务发现
       //上游Host
       //"UpstreamHost": "api.test.com",
       /**
@@ -131,7 +131,26 @@
        * RoundRobin – 轮流发送
        * NoLoadBalance – 总是发往第一个请求或者是服务发现
        */
-      "LoadBalancer": "LeastConnection"
+      "LoadBalancer": "LeastConnection",
+      //缓存
+      //"FileCacheOptions": {
+      //  "TtlSeconds": 10
+      //}
+
+      //限流
+      "ReteLimitOptions": {
+        "ClientWhitelist": [ "eleven", "seven" ], //白名单 ClientId 区分大小写  白名单请求不受限制，在headers里的key加ClientId
+        "EnableRateLimiting": true, //是否启用限流
+        "Period": "5m", //1s,5m,1h,1d 单位时间
+        "PeriodTimespan": 5, //多少秒之后客户端可以重试
+        "Limit": 5 //统计时间段内允许的最大请求数量
+      },
+      //熔断
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3, // 允许失败的异常次数
+        "DurationOfBreak": 10000, //熔断的时间，单位为ms
+        "TimeoutValue": 4000 //  如果下游的处理时间超过4S则视为请求异常，不时不设置黑认为90s
+      }
     }
   ],
   "GlobalConfiguration": {
@@ -141,6 +160,11 @@
       "Host": "localhost",
       "Port": 8500,
       "Type": "Consul" //由Consul提供服务发现
+    },
+    // 配置限流返回数据状态码  写不写无所谓
+    "RateLimitOptions": {
+      "QuotaExceedMessage": "Too many requests,maybe later?", //当请求过载被截断时返回的消息
+      "HttpStatusCode": 666 //当请求过载被截断时返回的http status
     }
   }
 
